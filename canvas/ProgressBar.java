@@ -9,7 +9,7 @@ class Canvas extends JPanel {
 
   protected void paintComponent(Graphics g) {
     super.paintComponent(g);
-    g.drawLine(50, 50, 200, 50);
+    g.drawRect(50, 50, 100, 50);
   }
 }
 
