@@ -9,7 +9,15 @@ class Canvas extends JPanel {
 
   protected void paintComponent(Graphics g) {
     super.paintComponent(g);
-    g.drawRect(50, 50, 100, 50);
+    g.setColor(Color.RED);
+    g.fillRect(50, 50, 100, 50);
+
+    g.setColor(Color.GREEN);
+    g.fillRect(160, 50, 100, 50);
+
+    g.setColor(Color.BLUE);
+    g.fillRect(270, 50, 100, 50);
+
   }
 }
 
@@ -18,7 +26,7 @@ public class ProgressBar {
     JFrame frame = new JFrame("GUI Canvas Application");
     Canvas canvas = new Canvas();
     frame.add(canvas);
-    frame.setSize(300, 200);
+    frame.setSize(450, 200);
     frame.setVisible(true);
   }
 }
