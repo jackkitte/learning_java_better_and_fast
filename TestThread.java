@@ -1,4 +1,4 @@
-class CarThread extends Thread {
+class CarThread implements Runnable {
   @Override
   public void run() {
     for (int i = 0; i < 5; i++) {
@@ -30,7 +30,7 @@ class TrainThread extends Thread {
 public class TestThread {
   public static void main(String[] args) {
     CarThread carThread = new CarThread();
-    carThread.start();
+    new Thread(carThread).start();
 
     TrainThread trainThread = new TrainThread();
     trainThread.start();
