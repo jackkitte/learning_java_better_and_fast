@@ -2,22 +2,35 @@ import java.awt.*;
 import javax.swing.*;
 
 class Canvas extends JPanel {
+  int width = 0;
+
   public Canvas() {
     this.setLayout(null);
     this.setBackground(Color.WHITE);
+    new ProgressBarThread().start();
   }
 
   protected void paintComponent(Graphics g) {
     super.paintComponent(g);
+    g.drawRect(50, 50, 150, 50);
+
     g.setColor(Color.RED);
-    g.fillRect(50, 50, 100, 50);
+    g.fillRect(50, 50, width, 50);
+  }
 
-    g.setColor(Color.GREEN);
-    g.fillRect(160, 50, 100, 50);
-
-    g.setColor(Color.BLUE);
-    g.fillRect(270, 50, 100, 50);
-
+  class ProgressBarThread extends Thread {
+    @Override
+    public void run() {
+      while (width < 150) {
+        width = width + 10;
+        try {
+          Thread.sleep(200);
+          Canvas.this.repaint();
+        } catch (InterruptedException e) {
+          e.printStackTrace();
+        }
+      }
+    }
   }
 }
 
